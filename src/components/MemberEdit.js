@@ -209,49 +209,154 @@ const MemberEdit = () => {
           justify-content: center;
           align-items: center;
           min-height: 100vh;
-          background: url("https://i.pinimg.com/originals/95/ef/b8/95efb8425d270933e5e890b33ab5ef70.gif")
-            no-repeat center center fixed;
+          background: 
+            linear-gradient(rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.9)),
+            url("https://i.pinimg.com/originals/95/ef/b8/95efb8425d270933e5e890b33ab5ef70.gif") no-repeat center center fixed;
           background-size: cover;
           overflow: hidden;
-          background-attachment: fixed;
-        }
-        
-        h2 {
-          color: #fff;
-          text-align: center;
+          position: relative;
+          background-blend-mode: multiply;
         }
 
         .content-wrapper {
-          background: rgba(122, 65, 129, 0.31);
+          background: rgba(255, 255, 255, 0.1);
+          backdrop-filter: blur(20px);
           padding: 3rem;
-          border-radius: 16px;
-          box-shadow: 0 0 20px rgba(125, 57, 214, 0.57);
-          width: 95%;
+          border-radius: 25px;
+          box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+          width: 90%;
           max-width: 1200px;
-          position: fixed;
-          overflow: auto;
-          max-height: 90vh;
+          border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        h2 {
+          margin-bottom: 1.5rem;
+          color: #fff;
+          font-size: 2.5rem;
+          text-align: center;
+          text-shadow: 0 4px 6px rgba(0,0,0,0.3);
+          animation: float 3s ease-in-out infinite;
+          background: linear-gradient(45deg, #fff, #89c9f3);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
         }
 
         .form-grid {
           display: grid;
-          grid-template-columns: repeat(2, minmax(300px, 1fr));
-          column-gap: 3rem;
-          row-gap: 1.2rem;
+          grid-template-columns: repeat(2, minmax(400px, 1fr));
+          column-gap: 4rem;
+          row-gap: 1.5rem;
           margin: 0 auto;
-          padding: 0 1rem;
-          max-width: 1100px;
+          padding: 0 2rem;
+          max-width: 1200px;
         }
 
         .form-group {
           position: relative;
           margin: 0;
-          padding: 0.5rem;
+          padding: 0.8rem;
+          min-width: 400px;
+          max-width: 500px;
+          width: 100%;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea,
+        .react-datepicker-wrapper input {
+          background: rgba(255, 255, 255, 0.9);
+          border: 2px solid rgba(255, 255, 255, 0.2);
+          color: #2c3e50;
+          transition: all 0.3s ease;
+          padding: 14px 18px;
+          font-size: 1.05rem;
+          border-radius: 10px;
+          width: 100%;
+          box-sizing: border-box;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+          border-color: #4facfe;
+          box-shadow: 0 0 15px rgba(79, 172, 254, 0.3);
+          transform: scale(1.02);
+        }
+
+        .button-container {
+          display: flex;
+          justify-content: center;
+          gap: 3rem;
+          margin-top: 3rem;
+          padding: 0 2rem;
+        }
+
+        .save-button, .delete-button, .cancel-button {
+          background: linear-gradient(45deg, #4facfe, #00f2fe);
+          border: none;
+          border-radius: 12px;
+          color: white;
+          font-weight: 600;
+          padding: 1.2rem 2.5rem;
+          transition: all 0.3s ease;
+          font-size: 1.1rem;
+        }
+
+        .delete-button {
+          background: linear-gradient(45deg, #ff758c, #ff7eb3);
+        }
+
+        .cancel-button {
+          background: linear-gradient(45deg, #ffa500, #ffd700);
+        }
+
+        .save-button:hover, 
+        .delete-button:hover,
+        .cancel-button:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .password-input {
+          position: relative;
+          display: flex;
+          align-items: center;
+          width: 100%;
+        }
+
+        .password-input input {
+          width: 100%;
+          padding-right: 45px; /* Space for the toggle button */
+        }
+
+        .password-toggle {
+          position: absolute;
+          right: 8px; /* Reduced from 15px to move closer to the end */
+          top: 50%;
+          transform: translateY(-50%);
+          background: rgba(255,255,255,0.2);
+          border: none;
+          cursor: pointer;
+          font-size: 1.2rem;
+          padding: 6px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.2s;
+          backdrop-filter: blur(2px);
+          z-index: 2;
+        }
+
+        .password-toggle:hover {
+          transform: scale(1.1);
+          background: rgba(255,255,255,0.3);
         }
 
         .form-group.full-width {
           grid-column: 1 / -1;
           max-width: 100%;
+          min-width: auto;
         }
 
         label {
@@ -263,127 +368,14 @@ const MemberEdit = () => {
           transition: transform 0.3s;
         }
 
-        input,
-        select,
-        textarea {
-          font: bold 1rem Arial, sans-serif;
-          width: 100%;
-          padding: 0.8rem;
-          border: 1px solid rgba(255, 255, 255, 0.2);
-          border-radius: 8px;
-          font-size: 1rem;
-          background: rgba(255, 255, 255, 0.9);
-          color: #000;
-          transition: all 0.3s ease;
+        @keyframes float {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-10px); }
         }
 
-        input:focus,
-        select:focus,
-        textarea:focus {
-          outline: none;
-          transform: translateY(-2px);
-          border-color: rgba(238, 33, 146, 0.99);
-          box-shadow: 0 0 15px rgba(238, 33, 204, 0.42);
-          background: #fff;
-        }
-
-        .password-input {
-          display: flex;
-          align-items: center;
-        }
-
-        .password-toggle {
-          margin-left: 0.5rem;
-          background: none;
-          border: none;
-          cursor: pointer;
-          font-size: 1.2rem;
-        }
-
-        .button-container {
-          display: flex;
-          justify-content: space-between;
-          margin-top: 2rem;
-        }
-
-        .save-button,
-        .delete-button,
-        .cancel-button {
-          width: 180px;
-          padding: 0.9rem;
-          border: none;
-          border-radius: 8px;
-          color: white;
-          font-size: 1rem;
-          font-weight: 600;
-          cursor: pointer;
-          transition: all 0.3s ease;
-        }
-
-        .save-button {
-          background: rgba(3, 255, 16, 0.8);
-        }
-
-        .save-button:hover {
-          background: rgba(89, 252, 116, 0.9);
-          transform: translateY(-2px);
-          box-shadow: 0 4px 12px rgba(105, 9, 230, 0.3);
-        }
-
-        .save-button:active {
-          transform: translateY(-1px);
-        }
-
-        .delete-button {
-          background: rgba(255, 3, 3, 0.8);
-        }
-
-        .delete-button:hover {
-          background: rgba(241, 72, 72, 0.9);
-          transform: translateY(-2px);
-          box-shadow: 0 4px 12px rgba(105, 9, 230, 0.3);
-        }
-
-        .delete-button:active {
-          transform: translateY(-1px);
-        }
-
-        .cancel-button {
-          background: rgba(255, 174, 0, 0.8);
-        }
-
-        .cancel-button:hover {
-          background: rgba(255, 191, 53, 0.9);
-          transform: translateY(-2px);
-          box-shadow: 0 4px 12px rgba(105, 9, 230, 0.3);
-        }
-
-        .cancel-button:active {
-          transform: translateY(-1px);
-        }
-
-        /* Add styles for DatePicker */
-        .date-picker {
-          width: 100%;
-          padding: 0.8rem;
-          border: 1px solid rgba(255, 255, 255, 0.2);
-          border-radius: 8px;
-          font-size: 1rem;
-          background: rgba(255, 255, 255, 0.9);
-          color: #000;
-          transition: all 0.3s ease;
-        }
-
-        .date-picker:hover {
-          background: rgba(255, 255, 255, 1);
-        }
-
-        .date-picker:focus {
-          outline: none;
-          transform: translateY(-2px);
-          border-color: rgba(238, 33, 146, 0.99);
-          box-shadow: 0 0 15px rgba(238, 33, 204, 0.42);
-          background: #fff;
+        @keyframes backgroundFlow {
+          0% { transform: translate(-25%, -25%) rotate(0deg); }
+          100% { transform: translate(-25%, -25%) rotate(360deg); }
         }
 
         @media (max-width: 968px) {
@@ -400,6 +392,25 @@ const MemberEdit = () => {
           .form-group.full-width {
             grid-column: 1;
           }
+        }
+
+        .form-group select {
+          width: 100%;
+          appearance: none;
+          padding-right: 2rem;
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+          background-repeat: no-repeat;
+          background-position: right 0.7rem center;
+        }
+
+        .react-datepicker-wrapper {
+          width: 100%;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+          color: #a0a0a0;
+          opacity: 0.8;
         }
       `}</style>
     </div>

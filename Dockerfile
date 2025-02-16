@@ -1,22 +1,21 @@
-# Use the official Node.js image as the base image
-FROM node:22
+FROM node:20-alpine as builder
 
-# Set the working directory
 WORKDIR /app
 
-# Copy package.json and package-lock.json and install dependencies
+# Copy package files and install dependencies with specific npm version
 COPY package*.json ./
-RUN npm install -g npm@latest
-RUN npm install --legacy-peer-deps
+RUN npm install -g npm@10.2.4 && \
+    npm install && \
+    npm install --save-dev @babel/plugin-proposal-private-property-in-object
 
-# Copy the rest of the application code
 COPY . .
 
-# Build the backend application
+# Set CI=false to prevent treating warnings as errors
+ENV CI=false
 RUN npm run build
 
-# Expose the port the app runs on
-EXPOSE 3000
-
-# Command to run the application
-CMD ["npm", "start"]
+FROM nginx:alpine
+COPY --from=builder /app/build /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]

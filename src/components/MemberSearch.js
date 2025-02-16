@@ -58,7 +58,7 @@ const MemberSearch = () => {
   return (
     <div className="member-search-container">
       <div className="content-wrapper">
-        <h2>{APP_NAME} 📋</h2>
+        <h2>{APP_NAME} </h2>
         <p>Welcome, {user?.name_mem || "User"}! 👋</p>
         <form className="search-form" onSubmit={handleSearch}>
           <input
@@ -118,181 +118,232 @@ const MemberSearch = () => {
           justify-content: center;
           align-items: center;
           min-height: 100vh;
-          background: url("https://i.pinimg.com/originals/77/ca/a3/77caa32884d735d439ade45ba37feaf2.gif")
-            no-repeat center center fixed;
+          background: 
+            linear-gradient(rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.9)),
+            url("https://i.redd.it/n02uwbfazym81.gif") no-repeat center center fixed;
           background-size: cover;
           overflow: hidden;
-          background-attachment: fixed;
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-blend-mode: multiply;
         }
 
         .content-wrapper {
-          background: rgba(255, 255, 255, 0.3);
-          padding: 2rem;
-          border-radius: 10px;
-          box-shadow: 0 0 10px rgba(80, 18, 160, 0.6);
-          width: 100%;
-          max-width: 800px;
-          position: fixed;
-          overflow: auto;
+          background: rgba(255, 255, 255, 0.1);
+          backdrop-filter: blur(20px);
+          padding: 2.5rem;
+          border-radius: 25px;
+          box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+          width: 90%;
+          max-width: 1000px;
+          max-height: 90vh;
+          overflow-y: auto;
+          position: relative;
+          transition: transform 0.3s ease;
         }
 
         h2 {
           margin-bottom: 1.5rem;
           color: #fff;
+          font-size: 2.8rem;
+          text-align: center;
+          text-shadow: 0 4px 6px rgba(0,0,0,0.3);
+          animation: float 3s ease-in-out infinite;
+          background: linear-gradient(45deg, #fff, #89c9f3);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
         }
 
         p {
-        display: flex;
-          color: rgb(255, 255, 255);
+          color: rgba(255, 255, 255, 0.9);
+          font-size: 1.2rem;
+          text-align: center;
+          margin-bottom: 2rem;
+          text-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
 
         .search-form {
           display: flex;
-          align-items: center;
-          margin-bottom: 1.5rem;
+          gap: 1rem;
+          margin-bottom: 2rem;
         }
 
         .search-form input {
-          width: calc(80% - 1.5rem);
-          padding: 0.75rem;
-          margin-right: 1rem;
-          border: 1px solid #444;
-          border-radius: 5px;
-          font-size: 1rem;
-          background: rgb(255, 255, 255);
-          color: #fff;
-          transition: transform 0.3s, box-shadow 0.3s;
+          flex: 1;
+          padding: 1rem;
+          border: 2px solid rgba(255, 255, 255, 0.2);
+          border-radius: 8px;
+          background: rgba(255, 255, 255, 0.9);
+          color: #2c3e50;
+          font-size: 1.1rem;
+          transition: all 0.3s ease;
         }
 
         .search-form input:focus {
-          transform: scale(1.05);
-          box-shadow: 0 0 10px rgba(33, 70, 238, 0.99);
+          border-color: #4facfe;
+          box-shadow: 0 0 20px rgba(79, 172, 254, 0.3);
+          transform: scale(1.02);
         }
 
         .search-form button {
-          padding: 0.75rem;
-          background: rgba(7, 75, 221, 0.67);
-          box-shadow: 0 0 8px rgba(105, 9, 230, 0.6);
+          padding: 1rem 2rem;
+          background: linear-gradient(45deg, #4facfe, #00f2fe);
           border: none;
-          border-radius: 5px;
+          border-radius: 8px;
           color: white;
-          font-size: 1rem;
+          font-weight: 600;
           cursor: pointer;
-          transition: background 0.3s, transform 0.3s;
+          transition: all 0.3s ease;
         }
 
         .search-form button:hover {
-          background: rgba(64, 120, 241, 0.73);
-          transform: scale(1.05);
-        }
-
-        .button-container {
-          display: flex;
-          justify-content: center;
-          gap: 1rem;
-          margin-top: 1rem;
-        }
-
-        .add-button,
-        .logout-button {
-          width: calc(40% - 1.5rem);
-          padding: 0.75rem;
-          background: rgba(7, 75, 221, 0.67);
-          box-shadow: 0 0 8px rgba(105, 9, 230, 0.6);
-          border: none;
-          border-radius: 5px;
-          color: white;
-          font-size: 1rem;
-          cursor: pointer;
-          justify-content: center;
-          transition: background 0.3s, transform 0.3s;
-        }
-
-        .add-button:hover,
-        .logout-button:hover {
-          background: rgba(64, 120, 241, 0.73);
-          transform: scale(1.05);
+          transform: translateY(-2px);
+          box-shadow: 0 5px 15px rgba(79, 172, 254, 0.4);
         }
 
         .table-container {
-          display: flex;
-          max-height: 400px;
+          max-height: 500px;
+          border-radius: 15px;
           overflow-y: auto;
-          margin-top: 1.5rem;
+          margin: 2rem 0;
+          background: rgba(255, 255, 255, 0.05);
+          backdrop-filter: blur(5px);
         }
 
         table {
           width: 100%;
           border-collapse: collapse;
-          background: rgba(10, 21, 121, 0.85);
-          color: #fff;
-          border-radius: 10px;
-          overflow: auto;
+          position: relative;
         }
 
         thead th {
           position: sticky;
           top: 0;
-          background: rgb(66, 177, 192);
+          background: linear-gradient(45deg, #4facfe, #00f2fe);
+          padding: 1.2rem;
+          color: white;
+          font-weight: 600;
+          text-transform: uppercase;
+          letter-spacing: 1px;
           z-index: 1;
+        }
+
+        tbody td {
           padding: 1rem;
-          text-align: left;
-          font-size: 1.1rem;
-          border-bottom: 2px solid #444;
+          color: rgba(255, 255, 255, 0.9);
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        th,
-        td {
-          justify-content: center;
-          padding: 0.75rem;
-          border: 1px solid #444;
-          text-align: left;
-        }
-
-        tbody tr:nth-child(odd) {
-          background: rgba(103, 210, 252, 0.47);
+        tbody tr {
+          transition: all 0.2s ease;
         }
 
         tbody tr:hover {
-          background: rgb(15, 15, 15);
+          background: rgba(255, 255, 255, 0.05);
+          transform: translateX(5px);
         }
 
-        .edit-button {
-          padding: 0.5rem 1rem;
-          background: rgba(7, 75, 221, 0.67);
-          box-shadow: 0 0 8px rgba(105, 9, 230, 0.6);
+        .button-container {
+          display: flex;
+          gap: 1.5rem;
+          justify-content: center;
+          margin-top: 2rem;
+        }
+
+        .add-button, .logout-button {
+          padding: 1rem 2.5rem;
+          border-radius: 8px;
           border: none;
-          border-radius: 5px;
-          color: white;
-          font-size: 1rem;
+          font-weight: 600;
           cursor: pointer;
-          transition: background 0.3s, transform 0.3s;
+          transition: all 0.3s ease;
         }
 
-        .edit-button:hover {
-          background: rgb(64, 120, 241, 0.73);
-          transform: scale(1.05);
+        .add-button {
+          background: linear-gradient(45deg, #4facfe, #00f2fe);
+        }
+
+        .logout-button {
+          background: linear-gradient(45deg, #ff758c, #ff7eb3);
+        }
+
+        .add-button:hover, .logout-button:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
         @keyframes float {
-          0% {
-            transform: translateY(0);
-          }
-          50% {
-            transform: translateY(-10px);
-          }
-          100% {
-            transform: translateY(0);
-          }
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-10px); }
         }
 
-        @keyframes backgroundMotion {
-          0% {
-            background-position: center;
-          }
-          100% {
-            background-position: top;
-          }
+        &::before {
+          content: '';
+          position: absolute;
+          width: 200%;
+          height: 200%;
+          background: linear-gradient(45deg, transparent 50%, rgba(79, 172, 254, 0.1) 50%);
+          animation: backgroundFlow 20s linear infinite;
+          z-index: -1;
+        }
+
+        @keyframes backgroundFlow {
+          0% { transform: translate(-25%, -25%) rotate(0deg); }
+          100% { transform: translate(-25%, -25%) rotate(360deg); }
+        }
+
+        .edit-button {
+          padding: 0.8rem 1.5rem;
+          border-radius: 8px;
+          border: none;
+          background: linear-gradient(45deg, #4dff88, #00d4ff);
+          color: white;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          position: relative;
+          overflow: hidden;
+          box-shadow: 0 4px 15px rgba(77, 255, 136, 0.3);
+          z-index: 0;
+        }
+
+        .edit-button:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 6px 20px rgba(0, 212, 255, 0.4);
+          animation: buttonShine 1.5s ease-out infinite;
+        }
+
+        .edit-button::before {
+          content: '';
+          position: absolute;
+          top: -50%;
+          left: -50%;
+          width: 200%;
+          height: 200%;
+          background: linear-gradient(
+            45deg,
+            transparent 25%,
+            rgba(255,255,255,0.2) 50%,
+            transparent 75%
+          );
+          transform: rotate(45deg);
+        }
+
+        .edit-button:hover::before {
+          animation: shine 1.5s forwards;
+        }
+
+        @keyframes shine {
+          0% { transform: translateX(-100%) rotate(45deg); }
+          100% { transform: translateX(100%) rotate(45deg); }
+        }
+
+        @keyframes buttonShine {
+          0%, 100% { transform: translateY(-2px); }
+          50% { transform: translateY(-3px); }
         }
       `}</style>
     </div>
