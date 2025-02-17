@@ -119,7 +119,7 @@ const MemberSearch = () => {
           align-items: center;
           min-height: 100vh;
           background: 
-            linear-gradient(rgba(35, 35, 207, 0.9), rgba(197, 206, 230, 0.9)),
+            linear-gradient(rgba(103, 103, 185, 0.9), rgba(50, 81, 167, 0.9)),
             url("https://i.redd.it/n02uwbfazym81.gif") no-repeat center center fixed;
           background-size: cover;
           overflow: hidden;

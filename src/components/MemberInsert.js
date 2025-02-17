@@ -173,7 +173,7 @@ const MemberInsert = () => {
           align-items: center;
           min-height: 100vh;
           background: 
-            linear-gradient(rgba(81, 81, 148, 0.9), rgba(106, 110, 121, 0.9)),
+            linear-gradient(rgba(113, 113, 146, 0.9), rgba(162, 79, 173, 0.9)),
             url("https://i.pinimg.com/originals/95/ef/b8/95efb8425d270933e5e890b33ab5ef70.gif") no-repeat center center fixed;
           background-size: cover;
           overflow: hidden;

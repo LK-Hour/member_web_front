@@ -210,7 +210,7 @@ const MemberEdit = () => {
           align-items: center;
           min-height: 100vh;
           background: 
-            linear-gradient(rgba(122, 122, 145, 0.9), rgba(85, 90, 104, 0.9)),
+            linear-gradient(rgba(134, 134, 151, 0.9), rgba(80, 103, 167, 0.9)),
             url("https://i.pinimg.com/originals/95/ef/b8/95efb8425d270933e5e890b33ab5ef70.gif") no-repeat center center fixed;
           background-size: cover;
           overflow: hidden;
