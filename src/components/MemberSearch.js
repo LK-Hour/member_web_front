@@ -122,7 +122,7 @@ const MemberSearch = () => {
               rgba(103, 103, 185, 0.9),
               rgba(50, 81, 167, 0.9)
             ),
-            url("https://user-images.githubusercontent.com/36126914/154766367-2c3d9c80-3cdc-4790-b15c-7eba5eee9fd2.gif")
+            url("https://www.pixelstalk.net/wp-content/uploads/2016/06/HD-Wallpapers-Gif-Download.gif")
               no-repeat center center fixed;
           background-size: cover;
           overflow: hidden;
