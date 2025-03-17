@@ -54,7 +54,7 @@ const Login = () => {
           justify-content: center;
           align-items: center;
           height: 100vh;
-          background: url("https://blenderartists.org/uploads/default/original/4X/f/8/1/f8111174602cd0503151e3cacac9ba84393b4540.gif"),
+          background: url("https://i.pinimg.com/originals/12/b2/3a/12b23a7752e8a7a4464c1ff5e596237f.gif"),
             linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1));
           background-blend-mode: overlay;
           background-size: cover;
