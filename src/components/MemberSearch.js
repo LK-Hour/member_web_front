@@ -118,9 +118,12 @@ const MemberSearch = () => {
           justify-content: center;
           align-items: center;
           min-height: 100vh;
-          background: 
-            linear-gradient(rgba(103, 103, 185, 0.9), rgba(50, 81, 167, 0.9)),
-            url("https://i.redd.it/n02uwbfazym81.gif") no-repeat center center fixed;
+          background: linear-gradient(
+              rgba(103, 103, 185, 0.9),
+              rgba(50, 81, 167, 0.9)
+            ),
+            url("https://user-images.githubusercontent.com/36126914/154766367-2c3d9c80-3cdc-4790-b15c-7eba5eee9fd2.gif")
+              no-repeat center center fixed;
           background-size: cover;
           overflow: hidden;
           position: fixed;
@@ -150,7 +153,7 @@ const MemberSearch = () => {
           color: #fff;
           font-size: 2.8rem;
           text-align: center;
-          text-shadow: 0 4px 6px rgba(0,0,0,0.3);
+          text-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
           animation: float 3s ease-in-out infinite;
           background: linear-gradient(45deg, #fff, #89c9f3);
           -webkit-background-clip: text;
@@ -162,7 +165,7 @@ const MemberSearch = () => {
           font-size: 1.2rem;
           text-align: center;
           margin-bottom: 2rem;
-          text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+          text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
 
         .search-form {
@@ -253,7 +256,8 @@ const MemberSearch = () => {
           margin-top: 2rem;
         }
 
-        .add-button, .logout-button {
+        .add-button,
+        .logout-button {
           padding: 1rem 2.5rem;
           border-radius: 8px;
           border: none;
@@ -270,29 +274,43 @@ const MemberSearch = () => {
           background: linear-gradient(45deg, #ff758c, #ff7eb3);
         }
 
-        .add-button:hover, .logout-button:hover {
+        .add-button:hover,
+        .logout-button:hover {
           transform: translateY(-2px);
-          box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
         @keyframes float {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-10px); }
+          0%,
+          100% {
+            transform: translateY(0);
+          }
+          50% {
+            transform: translateY(-10px);
+          }
         }
 
         &::before {
-          content: '';
+          content: "";
           position: absolute;
           width: 200%;
           height: 200%;
-          background: linear-gradient(45deg, transparent 50%, rgba(79, 172, 254, 0.1) 50%);
+          background: linear-gradient(
+            45deg,
+            transparent 50%,
+            rgba(79, 172, 254, 0.1) 50%
+          );
           animation: backgroundFlow 20s linear infinite;
           z-index: -1;
         }
 
         @keyframes backgroundFlow {
-          0% { transform: translate(-25%, -25%) rotate(0deg); }
-          100% { transform: translate(-25%, -25%) rotate(360deg); }
+          0% {
+            transform: translate(-25%, -25%) rotate(0deg);
+          }
+          100% {
+            transform: translate(-25%, -25%) rotate(360deg);
+          }
         }
 
         .edit-button {
@@ -317,7 +335,7 @@ const MemberSearch = () => {
         }
 
         .edit-button::before {
-          content: '';
+          content: "";
           position: absolute;
           top: -50%;
           left: -50%;
@@ -326,7 +344,7 @@ const MemberSearch = () => {
           background: linear-gradient(
             45deg,
             transparent 25%,
-            rgba(255,255,255,0.2) 50%,
+            rgba(255, 255, 255, 0.2) 50%,
             transparent 75%
           );
           transform: rotate(45deg);
@@ -337,13 +355,22 @@ const MemberSearch = () => {
         }
 
         @keyframes shine {
-          0% { transform: translateX(-100%) rotate(45deg); }
-          100% { transform: translateX(100%) rotate(45deg); }
+          0% {
+            transform: translateX(-100%) rotate(45deg);
+          }
+          100% {
+            transform: translateX(100%) rotate(45deg);
+          }
         }
 
         @keyframes buttonShine {
-          0%, 100% { transform: translateY(-2px); }
-          50% { transform: translateY(-3px); }
+          0%,
+          100% {
+            transform: translateY(-2px);
+          }
+          50% {
+            transform: translateY(-3px);
+          }
         }
       `}</style>
     </div>
